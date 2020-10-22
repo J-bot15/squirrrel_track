@@ -1,0 +1,19 @@
+<h1>Squirrel List</h1>
+<style type="text/css">
+#mytb td{width:150px;line-height:50px;text-align:center;}
+</style>
+<p><a href="/sightings/add/">Add a new sighting</a></p>
+<table id="mytb">
+	<tr>
+		<td>Unique Squirrel ID</td>
+		<td>Date</td>
+		<td>Link to unique squirrel sighting</td>
+	</tr>
+	{% for squirrel in squirrels.all %}
+	<tr>
+		<td>{{ squirrel.unique_id }}</td>
+		<td>{{ squirrel.date }}</td>
+		<td><a href="{% url 'sightings:detail' squirrel.unique_id}">{{ squirrel.age }}</a></td>
+	</tr>
+	{% endfor %}
+</table>
