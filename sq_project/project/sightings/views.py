@@ -51,5 +51,14 @@ def update(request,id):
         return render(request,'sightings/update.html',context)
 
 
-
+def stats(request):
+    total_sq = Squirrel.objects.count()
+    am_amount = Squirrel.objects.all().filter(shift='AM').count()
+    pm_amount = Squirrel.objects.all().filter(shift='PM').count()
+    context = {
+            'total_squirrel':total_sq,
+            'am_amount':am_amount,
+            'pm_amount':pm_amount,
+            }
+    return render(request, 'sightings/stats.html',context)
 

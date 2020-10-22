@@ -21,6 +21,7 @@ from django.conf.urls import url
 urlpatterns = [
     path('admin/',admin.site.urls),
     path('sightings/',views.sightings,name='sightings'),
-    path('sightings/map/',views.map,name='map'),
+    path('map/',views.map,name='map'),
     path('sightings/add/',views.add,name='add'),
+    path('sightings/stats/',views.stats,name="stats"),
 ]
